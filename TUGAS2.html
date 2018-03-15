@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>TUGAS 2 - MARKER CLUSTERING (LOKASI STARBUCKS) - SISTEM INFORMASI GEOGRAFIS</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+      function initMap() {
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: {lat: -2.44565, lng: 117.8888}
+        });
+
+        // Create an array of alphabetical characters used to label the markers.
+        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        // Add some markers to the map.
+        // Note: The code uses the JavaScript Array.prototype.map() method to
+        // create an array of markers based on a given "locations" array.
+        // The map() method here has nothing to do with the Google Maps API.
+        var markers = locations.map(function(location, i) {
+          return new google.maps.Marker({
+            position: location,
+            label: labels[i % labels.length]
+          });
+        });
+
+        // Add a marker clusterer to manage the markers.
+        var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+      }
+      var locations = [
+        {lat: -7.5622265, lng: 110.8101708},
+        {lat: -7.5988218, lng: 110.8163238},
+        {lat: -7.7835433, lng: 110.3869591},
+        {lat: 3.5906465, lng: 98.6798689},
+        {lat: 1.1292013, lng: 104.0560198},
+        {lat: 3.5910409, lng: 98.6776757},
+        {lat: 3.5826872, lng: 98.6718339},
+        {lat: 3.6031928, lng: 98.669326},
+        {lat: 3.567163, lng: 98.6258078},
+        {lat: 3.6363022, lng: 98.8792357},
+        {lat: 3.5856623, lng: 98.6731518},
+        {lat: 3.591324, lng: 98.6269136},
+        {lat: -6.1166809, lng: 106.789577},
+        {lat: -6.1411308, lng: 106.8543792},
+        {lat: -6.166689, lng: 106.8339086},
+        {lat: -6.1766516, lng: 106.8305182},
+        {lat: -6.1878514, lng: 106.8364406},
+        {lat: -6.2003522, lng: 106.8434787},
+        {lat: -6.2157538, lng: 106.8302822},
+        {lat: -6.224393, lng: 106.798954},
+        {lat: -6.2648566, lng: 106.7842126},
+        {lat: -6.2774836, lng: 106.8297458},
+        {lat: -6.2496058, lng: 106.9841766},
+        {lat: -6.248582, lng: 106.9915581},
+        {lat: -6.3638376, lng: 106.8334579},
+        {lat: -6.3727942, lng: 106.8345737},
+        {lat: -6.5576916, lng: 106.772604},
+        {lat: -0.0508118, lng: 109.3455505},
+        {lat: -0.146942, lng: 109.4046021},
+        {lat: -0.5259631, lng: 117.1156311},
+        {lat: -1.2619524, lng: 116.8986511},
+        {lat: -3.3228733, lng: 114.6025085},
+        {lat: 1.4706332, lng: 124.83078},
+        {lat: 1.5447652, lng: 124.9227905},
+        {lat: -3.845072, lng: 119.5243835},
+        {lat: -8.5062859, lng: 115.2613878},
+        {lat: -8.6063965, lng: 115.1079655},
+        {lat: -8.690233, lng: 115.2639627},
+        {lat: -8.7237454, lng: 115.1840544},
+        {lat: -8.7439362, lng: 115.1637125},
+        {lat: -8.5942567, lng: 116.1043749},
+        {lat: -7.3828959, lng: 112.7753448},
+        {lat: -7.9735577, lng: 112.6119232},
+        {lat: 1.463769, lng: 103.7631226},
+        {lat: 1.2858074, lng: 103.8600898},
+        {lat: 1.2861721, lng: 103.8273025},
+        {lat: -33.8749764, lng: 151.2062073},
+        {lat: -28.0028893, lng: 153.4309387},
+        {lat: -37.8997815, lng: 145.136261},
+        {lat: 14.6235758, lng: 121.1138713},
+        {lat: 14.5749445, lng: 120.9844494}
+      ]
+    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4RxFm0f4wYfTliYk4N66u1-HyYR6iBDY&callback=initMap">
+    </script>
+  </body>
+</html>
