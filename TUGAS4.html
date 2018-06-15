@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TUGAS 4 - STREET VIEW SIDE BY SIDE</title>
+    <style>
+      html, body {
+        height: 91.5%;
+        margin: 0;
+        padding: 0;
+      }
+      #map, #pano {
+        float: left;
+        height: 100%;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <h4>L200154001 - Street View Side By Side</h4>
+      <b>Lokasi Sekitar Tempat Tinggal</b>
+    </center>
+    <div id="map"></div>
+    <div id="pano"></div>
+    <script>
+
+      function initialize() {
+        var fenway = {lat: -7.5601149, lng: 110.7551309};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: fenway,
+          zoom: 17
+        });
+        var panorama = new google.maps.StreetViewPanorama(
+            document.getElementById('pano'), {
+              position: fenway,
+              pov: {
+                heading: 34,
+                pitch: 10
+              }
+            });
+        map.setStreetView(panorama);
+      }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4RxFm0f4wYfTliYk4N66u1-HyYR6iBDY&callback=initialize">
+    </script>
+    <center>
+      <input onclick="window.location.href='index.html'" type="submit" value="HOME"></input>
+    </center>
+  </body>
+</html>
